@@ -616,3 +616,12 @@ header h1 .accent { white-space: nowrap; }
 .nav-mark text { font-style: normal; }
 
 #education h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+/* timeline: education lane pinned at the bottom (solid bars) */
+.g-row-edu { margin-top: 10px; border-top: 1px dashed var(--line-strong); padding-top: 4px; height: 62px; }
+.g-edu { background: var(--text-main); border: none; }
+.g-edu .g-name, .g-edu .g-date { color: var(--bg-main); }
+.g-edu:hover, .g-edu:focus, .g-edu.hl { background: var(--text-dim); }
+.g-edu.g-cont { border-radius: 0; }
+.g-edu.g-cont .g-date::before { content: "◀ "; }      /* starts before the axis */
+.g-key.g-edu { background: var(--text-main); border: none; }

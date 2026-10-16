@@ -614,3 +614,5 @@ header h1 .accent { white-space: nowrap; }
 }
 .g-icon[src$="hmi.png"] { width: 54px; }
 .nav-mark text { font-style: normal; }
+
+#education h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }

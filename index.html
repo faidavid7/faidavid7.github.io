@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Cheng-Han Chiang 江承瀚">
+    <meta property="og:description" content="EE & Data Science @ NTHU — research on world models, bio-inspired learning, quantum error correction and medical AI.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1a1a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23faf7f2'%3ECH%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <title>Cheng-Han Chiang 江承瀚</title>
+</head>
+<body>
+    <script>
+        /* apply theme before paint: saved choice, else system preference */
+        (function () {
+            var t = null; try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', t);
+        })();
+    </script>
+    <nav>
+        <a class="logo" href="./" style="text-decoration: none;">
+            <span class="nav-mark">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><text x="24" y="32" text-anchor="middle" font-family="Source Serif 4, Noto Serif TC, Georgia, serif" font-size="27" font-weight="600" font-style="normal" fill="currentColor">CH</text></svg>
+            </span>
+            CHENG-HAN <span>CHIANG</span>
+        </a>
+        <div class="nav-right">
+            <div class="social-links">
+                <a href="mailto:faidavid7@gmail.com" class="social-icon" aria-label="Email faidavid7@gmail.com" title="faidavid7@gmail.com">
+                    <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.6 19.8 6H4.2zM20 7.9l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+                </a>
+                <a href="https://github.com/faidavid7" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/cheng-han-chiang-878a0930a" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.58c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29z"/></svg>
+                </a>
+            </div>
+            <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language / 切換語言">
+                <span class="zh">EN</span><span class="en">中</span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="切換深淺色模式 / Toggle theme">
+                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+
+    <header>
+        <div class="hero-top">
+            <div class="hero-text">
+            <div class="motto">From Silicon to Cognition</div>
+            <h1>Cheng-Han Chiang <span class="accent">江承瀚</span></h1>
+            <p class="hero-affil">
+                <span class="zh">國立清華大學 電機工程學系 碩士生 · 視覺科學實驗室</span>
+                <span class="en">M.S. Student, Department of Electrical Engineering, National Tsing Hua University</span>
+            </p>
+            <div class="hero-desc">
+                <p>
+                    <span class="zh"><span class="hero-key">Research：</span>我的研究關注「會學習的系統」如何從大腦與硬體的運算方式中汲取靈感，涵蓋世界模型（world models）、仿生學習（脈衝神經網路、predictive coding）、量子糾錯（QEC）解碼器的硬體實作，以及醫療訊號 AI。我喜歡把一個想法從模型一路做到晶片，在演算法與實際系統之間來回驗證。曾於 NSF HDR ML Challenge 2026 兩條賽道分別拿下全球第 2 與第 4 名。</span>
+                    <span class="en"><span class="hero-key">Research:</span> My research focuses on learning systems that draw on how the brain and hardware compute, spanning world models, bio-inspired learning (spiking neural networks and predictive coding), hardware decoders for quantum error correction, and medical signal AI. I enjoy carrying an idea from model all the way down to silicon, iterating between algorithms and working systems. I placed Global No. 2 and No. 4 on two tracks of the NSF HDR ML Challenge 2026.</span>
+                </p>
+                <p>
+                    <span class="zh"><span class="hero-key">Bio：</span>我是國立清華大學電機工程學系的碩士生，在視覺科學實驗室（Vision Science Lab）跟隨孫民教授。大學畢業於清大電機系並修讀數據科學學程，期間於 Tedious Quantum Lab、NBME Lab、Data Lab 進行專題研究，並在 BiiC Lab 擔任研究助理，與台大醫院合作以心音估計心臟射血分率。</span>
+                    <span class="en"><span class="hero-key">Bio:</span> I am an M.S. student in Electrical Engineering at National Tsing Hua University (NTHU), advised by Prof. Min Sun at the Vision Science Lab. I received my B.S. in Electrical Engineering from NTHU with the Data Science Program, where I did research projects at the Tedious Quantum Lab, NBME Lab and Data Lab, and worked as a research assistant at BiiC Lab with NTU Hospital on estimating cardiac ejection fraction from heart sounds.</span>
+                </p>
+            </div>
+            </div>
+            <img class="hero-photo" src="assets/photo.webp" alt="Cheng-Han Chiang 江承瀚" width="600" height="800">
+        </div>
+        <div class="toc" role="navigation" aria-label="目錄 / Contents">
+            <span class="toc-label"><span class="zh">目錄</span><span class="en">Contents</span></span>
+            <ol>
+                <li><a href="#education"><span class="toc-num">00</span><span class="zh">學歷</span><span class="en">Education</span></a></li>
+                <li><a href="#research"><span class="toc-num">01</span><span class="zh">研究</span><span class="en">Research</span></a></li>
+                <li><a href="#publications"><span class="toc-num">02</span><span class="zh">著作</span><span class="en">Publications</span></a></li>
+                <li><a href="#experience"><span class="toc-num">03</span><span class="zh">經歷</span><span class="en">Experience</span></a></li>
+                <li><a href="#competitions"><span class="toc-num">04</span><span class="zh">競賽</span><span class="en">Competitions</span></a></li>
+                <li><a href="#certifications"><span class="toc-num">05</span><span class="zh">證書</span><span class="en">Certifications</span></a></li>
+                <li><a href="#skills"><span class="toc-num">06</span><span class="zh">技能</span><span class="en">Skills</span></a></li>
+            </ol>
+        </div>
+        <div class="scroll-cue">Scroll</div>
+    </header>
+
+    <aside class="side-toc" aria-label="側邊目錄 / Sidebar contents">
+        <ol>
+            <li><a href="#education" data-target="education"><span class="toc-num">00</span><span class="zh">學歷</span><span class="en">Education</span></a></li>
+            <li><a href="#research" data-target="research"><span class="toc-num">01</span><span class="zh">研究</span><span class="en">Research</span></a></li>
+            <li><a href="#publications" data-target="publications"><span class="toc-num">02</span><span class="zh">著作</span><span class="en">Publications</span></a></li>
+            <li><a href="#experience" data-target="experience"><span class="toc-num">03</span><span class="zh">經歷</span><span class="en">Experience</span></a></li>
+            <li><a href="#competitions" data-target="competitions"><span class="toc-num">04</span><span class="zh">競賽</span><span class="en">Competitions</span></a></li>
+            <li><a href="#certifications" data-target="certifications"><span class="toc-num">05</span><span class="zh">證書</span><span class="en">Certifications</span></a></li>
+            <li><a href="#skills" data-target="skills"><span class="toc-num">06</span><span class="zh">技能</span><span class="en">Skills</span></a></li>
+        </ol>
+    </aside>
+
+    <section id="education">
+        <span class="section-title">00 / Education</span>
+        <div class="list-container">
+            <div class="list-row">
+                <div class="row-label">2022 - 2026</div>
+                <div class="row-content">
+                    <h3>National Tsing Hua University <span class="zh">國立清華大學</span></h3>
+                    <p class="org degree"><span class="zh">電機工程學系 學士</span><span class="en">B.S. in Electrical Engineering</span></p>
+                    <p class="org degree"><span class="zh">數據科學學程</span><span class="en">Data Science Program</span></p>
+                </div>
+            </div>
+            <div class="list-row">
+                <div class="row-label">2026.09 - 2028</div>
+                <div class="row-content">
+                    <h3>National Tsing Hua University <span class="zh">國立清華大學</span></h3>
+                    <p class="org degree"><span class="zh">電機工程學系 碩士班</span><span class="en">M.S., Electrical Engineering</span></p>
+                    <p><span class="zh">視覺科學實驗室 Vision Science Lab（指導教授：孫民 Prof. Min Sun）。</span><span class="en">Vision Science Lab (advisor: Prof. Min Sun).</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <span class="section-title">01 / Research</span>
+        <div class="r-tiles">
+            <button type="button" class="r-tile active" data-topic="1" aria-controls="topic-1">
+                <span class="r-num">01</span>
+                <span class="r-name"><span class="zh">世界模型</span><span class="en">World Model</span></span>
+            </button>
+            <button type="button" class="r-tile" data-topic="2" aria-controls="topic-2">
+                <span class="r-num">02</span>
+                <span class="r-name"><span class="zh">仿生學習</span><span class="en">Bio-Inspired Learning</span></span>
+            </button>
+            <button type="button" class="r-tile" data-topic="3" aria-controls="topic-3">
+                <span class="r-num">03</span>
+                <span class="r-name"><span class="zh">量子糾錯 QEC</span><span class="en">Quantum Error Correction (QEC)</span></span>
+            </button>
+            <button type="button" class="r-tile" data-topic="4" aria-controls="topic-4">
+                <span class="r-num">04</span>
+                <span class="r-name"><span class="zh">醫療研究</span><span class="en">Medical Research</span></span>
+            </button>
+        </div>
+        <div class="r-panel list-container active" id="topic-1" data-topic="1">
+            <div class="list-row">
+                <div class="row-label"><span class="zh">2026.09 - 至今</span><span class="en">2026.09 - Present</span></div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/nthu.png" alt="NTHU" loading="lazy">Physical World Model</h3>
+                    <p class="org">NTHU EE · Vision Science Lab</p>
+                    <p class="org advisor"><span class="zh">指導教授：孫民 教授、柯宗瑋 教授</span><span class="en">Advisors: Prof. Min Sun &amp; Prof. Tsung-Wei Ke</span></p>
+                    <p><span class="zh">碩士研究，探索能理解並預測物理世界動態的世界模型。</span><span class="en">M.S. research on world models that understand and predict the dynamics of the physical world.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">World-Models</span><span class="tag">Physical-AI</span>
+                    </div>
+                </div>
+            </div>
+            <a class="list-row" href="https://implementation.ee.nthu.edu.tw/competition/groups/00433d09-4f51-4d65-9f49-ffcec1b2f9b5/attachments/poster" target="_blank" rel="noopener">
+                <div class="row-label">2025.01 - 2025.12</div>
+                <div class="row-content">
+                    <h3><img class="org-logo logo-mono" src="assets/logos/data-lab.png" alt="NTHU Data Lab" loading="lazy">World-Model Experience Grounding <span class="arrow">↗</span></h3>
+                    <p class="org">NTHU CS · Data Lab · Group B559</p>
+                    <p class="org advisor"><span class="zh">指導教授：吳尚鴻 教授</span><span class="en">Advisor: Prof. Shan-Hung Wu</span></p>
+                    <p><span class="zh">以 DreamerV3 為骨幹，結合 Advantage-Weighted Actor-Critic（AWAC）對世界模型進行優勢經驗學習，並設計精細的動作選擇 gating 機制。</span><span class="en">Advantage-based experience learning for world models on a DreamerV3 backbone, with an Advantage-Weighted Actor-Critic (AWAC) head and a fine-grained action-selection gating mechanism.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">World-Models</span><span class="tag">DreamerV3</span><span class="tag">AWAC</span><span class="tag">RL</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="r-panel list-container" id="topic-2" data-topic="2">
+            <div class="list-row">
+                <div class="row-label">2026.02 - 2026.08</div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/hmi.png" alt="HMI Lab" loading="lazy">Predictive Coding</h3>
+                    <p class="org">NTHU CS · Human-Centered Machine Intelligence (HMI) Lab</p>
+                    <p class="org advisor"><span class="zh">指導教授：郭柏志 教授</span><span class="en">Advisor: Prof. Po-Chih Kuo</span></p>
+                    <p><span class="zh">以 predictive coding 為核心，研究受大腦啟發、以預測誤差驅動的學習機制。</span><span class="en">Research on predictive coding — brain-inspired learning driven by prediction errors.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">Predictive-Coding</span><span class="tag">Bio-Inspired</span>
+                    </div>
+                </div>
+            </div>
+            <a class="list-row" href="https://implementation.ee.nthu.edu.tw/competition/groups/32ed5441-7fee-4196-ae54-6728ac7a29d0/attachments/poster" target="_blank" rel="noopener">
+                <div class="row-label">2025.01 - 2025.12</div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/nbme.png" alt="NBME Lab" loading="lazy">Generative Spiking Neural Network <span class="arrow">↗</span></h3>
+                    <p class="org">NTHU EE · NBME Lab · Group B542</p>
+                    <p class="org advisor"><span class="zh">指導教授：鄭桂忠 教授</span><span class="en">Advisor: Prof. Kea-Tiong Tang</span></p>
+                    <p><span class="zh">訓練少時步、低位元量化的生成式脈衝神經網路 VAE；對硬體友善，透過 QAT 解決各層尺度問題，潛在空間可直接用於分類，準確率達 94.7%。</span><span class="en">A generative spiking-neural-network VAE trained with few time-steps and low-bit quantization; hardware-friendly, resolving per-layer scaling via QAT, with the latent space directly usable for classification at 94.7% accuracy.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">SNN</span><span class="tag">VAE</span><span class="tag">Quantization</span><span class="tag">QAT</span><span class="tag">PyTorch</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="r-panel list-container" id="topic-3" data-topic="3">
+            <div class="list-row">
+                <div class="row-label">2026.07 - 2026.11</div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/nycu-seal.png" alt="NYCU" loading="lazy">CNN Decoder for Quantum Error Correction</h3>
+                    <p class="org">NYCU · ICSSL</p>
+                    <p class="org advisor"><span class="zh">合作教授：吳易忠 教授</span><span class="en">Collaborating Professor: Prof. Yi-Chung Wu</span></p>
+                    <p><span class="zh">以卷積神經網路（CNN）建構量子糾錯解碼模型。</span><span class="en">Building a convolutional neural network (CNN) decoder model for quantum error correction.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">QEC</span><span class="tag">CNN</span><span class="tag">Neural-Decoder</span>
+                    </div>
+                </div>
+            </div>
+            <a class="list-row" href="https://implementation.ee.nthu.edu.tw/competition/groups/86d0d6d9-435f-466f-8021-2329ea926fc1/attachments/poster" target="_blank" rel="noopener">
+                <div class="row-label">2024.07 - 2025.11</div>
+                <div class="row-content">
+                    <h3><img class="org-logo logo-mono" src="assets/logos/tedious-quantum.png" alt="Tedious Quantum Lab" loading="lazy">Quantum Error Correction <span class="zh">量子糾錯</span> <span class="arrow">↗</span></h3>
+                    <p class="org">NTHU ENE · Tedious Quantum Lab · Group A519</p>
+                    <p class="org advisor"><span class="zh">指導教授：張鑑元 教授</span><span class="en">Advisor: Prof. Chien-Yuan Chang</span></p>
+                    <p><span class="zh">以演算法解碼實現量子糾錯，將加權 Quantum Union-Find 解碼器部署於 FPGA 與 ASIC 以提升可擴展性，並於 Google Willow 資料集上驗證。</span><span class="en">Algorithm-based decoding for quantum error correction; deployed a weighted Quantum Union-Find decoder on FPGA and ASIC for scalability, validated on Google's Willow dataset.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">QEC</span><span class="tag">Union-Find</span><span class="tag">FPGA</span><span class="tag">ASIC</span><span class="tag">Verilog</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="r-panel list-container" id="topic-4" data-topic="4">
+            <div class="list-row">
+                <div class="row-label">2026.02 - 2026.06</div>
+                <div class="row-content">
+                    <h3><span class="org-logos"><img class="org-logo" src="assets/logos/biic.svg" alt="BiiC Lab" loading="lazy"><img class="org-logo" src="assets/logos/ntuh.png" alt="NTU Hospital" loading="lazy"></span>Predicting EF by Phonocardiography</h3>
+                    <p class="org">NTHU EE · BiiC Lab × <span class="zh">台大醫院</span><span class="en">NTU Hospital</span></p>
+                    <p class="org advisor"><span class="zh">指導教授：李祈均 教授</span><span class="en">Advisor: Prof. Chi-Chun Lee</span></p>
+                    <p><span class="zh">研究助理，從心音（PCG）訊號直接估計心臟射血分率（EF），探索低成本、非影像式的心臟篩檢方法。</span><span class="en">Research assistant estimating cardiac ejection fraction (EF) directly from phonocardiography (PCG) signals — a low-cost, non-imaging cardiac screening approach.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">Biosignals</span><span class="tag">Healthcare-ML</span><span class="tag">Time-Series</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <span class="section-title">02 / Publications</span>
+        <div class="list-container">
+            <p class="empty-note"><span class="zh">即將更新。</span><span class="en">Coming soon.</span></p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <span class="section-title">03 / Experience</span>
+        <div class="gantt">
+            <div class="g-legend"><span class="g-key g-r"></span><span class="zh">研究</span><span class="en">Research</span><span class="g-key g-e"></span><span class="zh">經歷</span><span class="en">Experience</span><span class="g-key g-c"></span><span class="zh">競賽</span><span class="en">Competition</span><span class="g-hint"><span class="zh">拖曳下方滑桿或直接拖曳圖表左右查看</span><span class="en">Drag the slider or the chart to scroll</span></span></div>
+            <div class="g-scroller" tabindex="0" aria-label="時間線 / Timeline">
+                <div class="g-canvas" style="width:3240px">
+                <div class="g-axis"><span class="g-tick g-year" style="left:0px">2024.01</span><span class="g-tick" style="left:270px">2024.04</span><span class="g-tick" style="left:540px">2024.07</span><span class="g-tick" style="left:810px">2024.10</span><span class="g-tick g-year" style="left:1080px">2025.01</span><span class="g-tick" style="left:1350px">2025.04</span><span class="g-tick" style="left:1620px">2025.07</span><span class="g-tick" style="left:1890px">2025.10</span><span class="g-tick g-year" style="left:2160px">2026.01</span><span class="g-tick" style="left:2430px">2026.04</span><span class="g-tick" style="left:2700px">2026.07</span><span class="g-tick" style="left:2970px">2026.10</span></div>
+                <div class="g-row"><div class="g-bar g-e" tabindex="0" data-exp="cg" style="left:90px;width:444px" title="2024.02 – 2024.06"><span class="g-lbl"><img class="g-icon" src="assets/logos/codegarage.jpg" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">機器學習課程講師</span><span class="en">ML Course Instructor</span></span><span class="g-date">2024.02 – 2024.06</span></span></span></div><div class="g-bar g-r" tabindex="0" data-topic="3" style="left:540px;width:1524px" title="2024.07 – 2025.11"><span class="g-lbl"><img class="g-icon logo-mono" src="assets/logos/tedious-quantum.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">QEC：Union-Find &amp; 40nm Chip</span><span class="en">QEC: Union-Find &amp; 40nm Chip</span></span><span class="g-date">2024.07 – 2025.11</span></span></span></div><div class="g-bar g-c" tabindex="0" data-jump="competitions" style="left:2070px;width:174px" title="2025.12 – 2026.01"><span class="g-lbl"><span class="g-icon g-emoji">🏆</span><span class="g-txt"><span class="g-name"><span class="zh">NSF HDR 競賽</span><span class="en">NSF HDR</span></span><span class="g-date">2025.12 – 2026.01</span></span></span></div><div class="g-bar g-e" tabindex="0" data-exp="biic" style="left:2250px;width:444px" title="2026.02 – 2026.06"><span class="g-lbl"><img class="g-icon" src="assets/logos/biic.svg" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">BiiC Lab 研究助理</span><span class="en">BiiC Lab RA</span></span><span class="g-date">2026.02 – 2026.06</span></span></span></div><div class="g-bar g-e" tabindex="0" data-exp="ml" style="left:2880px;width:354px" title="2026.09 – 2026.12"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">機器學習概論 助教</span><span class="en">Intro to ML TA</span></span><span class="g-date">2026.09 – 2026.12</span></span></span></div></div>
+                <div class="g-row"><div class="g-bar g-r" tabindex="0" data-topic="2" style="left:1080px;width:1074px" title="2025.01 – 2025.12"><span class="g-lbl"><img class="g-icon" src="assets/logos/nbme.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">生成式脈衝神經網路</span><span class="en">Generative SNN</span></span><span class="g-date">2025.01 – 2025.12</span></span></span></div><div class="g-bar g-r" tabindex="0" data-topic="2" style="left:2250px;width:624px" title="2026.02 – 2026.08"><span class="g-lbl"><img class="g-icon" src="assets/logos/hmi.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">HMI Lab · Predictive Coding</span><span class="en">HMI Lab · Predictive Coding</span></span><span class="g-date">2026.02 – 2026.08</span></span></span></div><div class="g-bar g-e" tabindex="0" data-exp="dl" style="left:2880px;width:354px" title="2026.09 – 2026.12"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu-ee.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">深度學習實作 助教</span><span class="en">DL Implementation TA</span></span><span class="g-date">2026.09 – 2026.12</span></span></span></div></div>
+                <div class="g-row"><div class="g-bar g-r" tabindex="0" data-topic="1" style="left:1080px;width:1074px" title="2025.01 – 2025.12"><span class="g-lbl"><img class="g-icon logo-mono" src="assets/logos/data-lab.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">DreamerV3 Experience Grounding</span><span class="en">DreamerV3 Experience Grounding</span></span><span class="g-date">2025.01 – 2025.12</span></span></span></div><div class="g-bar g-e" tabindex="0" data-exp="nn" style="left:2880px;width:354px" title="2026.09 – 2026.12"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">神經網路與學習系統 助教</span><span class="en">Neural Networks TA</span></span><span class="g-date">2026.09 – 2026.12</span></span></span></div></div>
+                <div class="g-row"><div class="g-bar g-e" tabindex="0" data-exp="logic1" style="left:1800px;width:444px" title="2025.09 – 2026.01"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">邏輯設計 助教（上）</span><span class="en">Logic Design TA (Fall)</span></span><span class="g-date">2025.09 – 2026.01</span></span></span></div><div class="g-bar g-e" tabindex="0" data-exp="logic2" style="left:2250px;width:444px" title="2026.02 – 2026.06"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">邏輯設計 助教（下）</span><span class="en">Logic Design TA (Spring)</span></span><span class="g-date">2026.02 – 2026.06</span></span></span></div><div class="g-bar g-r" tabindex="0" data-topic="1" style="left:2880px;width:354px" title="2026.09 – present"><span class="g-lbl"><img class="g-icon" src="assets/logos/nthu.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">VS Lab · Physical World Model</span><span class="en">VS Lab · Physical World Model</span></span><span class="g-date"><span class="zh">2026.09 – 至今</span><span class="en">2026.09 – Present</span></span></span></span></div></div>
+                <div class="g-row"><div class="g-bar g-r" tabindex="0" data-topic="3" style="left:2700px;width:444px" title="2026.07 – 2026.11"><span class="g-lbl"><img class="g-icon" src="assets/logos/nycu-seal.png" alt="" loading="lazy"><span class="g-txt"><span class="g-name"><span class="zh">ICSSL · CNN for QEC</span><span class="en">ICSSL · CNN for QEC</span></span><span class="g-date">2026.07 – 2026.11</span></span></span></div></div>
+                </div>
+            </div>
+            <input class="g-slider" type="range" min="0" max="1000" value="1000" aria-label="左右捲動時間線 / Scroll timeline">
+        </div>
+        <div class="list-container">
+            <div class="list-row" data-exp="ml">
+                <div class="row-label">2026.09 - 2026.12</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/nthu.png" alt="NTHU" loading="lazy">
+                    <h3><span class="zh">機器學習概論 助教</span><span class="en">Introduction to Machine Learning — Teaching Assistant</span></h3><span class="course-code">11510 CS 460200</span>
+                    <p class="org"><span class="zh">國立清華大學 資訊工程學系，新竹</span><span class="en">Dept. of Computer Science, NTHU, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="dl">
+                <div class="row-label">2026.09 - 2026.12</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/nthu-ee.png" alt="NTHU EE" loading="lazy">
+                    <h3><span class="zh">深度學習實作 助教</span><span class="en">Deep Learning Implementation — Teaching Assistant</span></h3><span class="course-code">11510 EE 371000</span>
+                    <p class="org"><span class="zh">國立清華大學 電機工程學系，新竹</span><span class="en">Dept. of Electrical Engineering, NTHU, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="nn">
+                <div class="row-label">2026.09 - 2026.12</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/nthu.png" alt="NTHU" loading="lazy">
+                    <h3><span class="zh">神經網路與學習系統 助教</span><span class="en">Neural Networks and Learning Systems — Teaching Assistant</span></h3><span class="course-code">11510 ENE 529000</span>
+                    <p class="org"><span class="zh">國立清華大學 電子工程研究所，新竹</span><span class="en">Institute of Electronics Engineering, NTHU, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="biic">
+                <div class="row-label">2026.02 - 2026.06</div>
+                <div class="row-content">
+                    <span class="org-logos"><img class="org-logo" src="assets/logos/biic.svg" alt="BiiC Lab" loading="lazy"><img class="org-logo" src="assets/logos/ntuh.png" alt="NTU Hospital" loading="lazy"></span>
+                    <h3><span class="zh">BiiC Lab 研究助理</span><span class="en">BiiC Lab — Research Assistant</span></h3>
+                    <p class="org"><span class="zh">國立清華大學 電機工程學系 × 台大醫院，新竹</span><span class="en">Dept. of Electrical Engineering, NTHU × NTU Hospital, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="logic2">
+                <div class="row-label">2026.02 - 2026.06</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/nthu.png" alt="NTHU" loading="lazy">
+                    <h3><span class="zh">邏輯設計 助教</span><span class="en">Logic Design — Teaching Assistant</span></h3><span class="course-code">11420 EECS 101002</span>
+                    <p class="org"><span class="zh">國立清華大學 電機資訊學院，新竹</span><span class="en">College of EECS, NTHU, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="logic1">
+                <div class="row-label">2025.09 - 2026.01</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/nthu.png" alt="NTHU" loading="lazy">
+                    <h3><span class="zh">邏輯設計 助教</span><span class="en">Logic Design — Teaching Assistant</span></h3><span class="course-code">11410 EECS 101002</span>
+                    <p class="org"><span class="zh">國立清華大學 電機資訊學院，新竹</span><span class="en">College of EECS, NTHU, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+            <div class="list-row" data-exp="cg">
+                <div class="row-label">2024.02 - 2024.06</div>
+                <div class="row-content">
+                    <img class="org-logo" src="assets/logos/codegarage.jpg" alt="Code Garage" loading="lazy">
+                    <h3><span class="zh">機器學習課程講師</span><span class="en">Machine Learning Course Instructor</span></h3>
+                    <p class="org"><span class="zh">Code Garage 學生社團，新竹</span><span class="en">Code Garage Student Club, Hsinchu, Taiwan</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competitions">
+        <span class="section-title">04 / Competitions</span>
+        <div class="list-container comp-card">
+            <a href="https://www.nsfhdr.org/html/mlchallenge-y2/index.html" target="_blank" rel="noopener" class="list-row featured">
+                <div class="row-label">Global · OOD</div>
+                <div class="row-content">
+                    <h3>NSF HDR ML Challenge 2026 <span class="arrow">↗</span></h3>
+                    <p class="org">Scientific-Mood · NSF Harnessing the Data Revolution (HDR)</p>
+                    <span class="rank-pill">🏆 Global No. 2 &amp; No. 4</span>
+                    <div class="comp-more"><div>
+                    <p><span class="zh">由 NSF HDR institutes 主辦的國際性「分布外（Out-of-Distribution, OOD）科學建模」競賽，要求模型在真實科學流程上做域外外推。於兩條獨立賽道進入全球前段。</span><span class="en">An international out-of-distribution (OOD) scientific-modeling challenge run by the NSF HDR institutes, requiring out-of-domain extrapolation on real scientific processes. Placed in the global top tier across two independent tracks.</span></p>
+                    <div class="tag-group">
+                        <span class="tag">OOD</span><span class="tag">Imageomics</span><span class="tag">A3D3</span><span class="tag">Forecasting</span>
+                    </div>
+                    </div></div>
+                </div>
+            </a>
+            <div class="comp-more"><div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 90px;"><span class="zh">年份</span><span class="en">Year</span></th>
+                        <th><span class="zh">賽道</span><span class="en">Track</span></th>
+                        <th><span class="zh">名次</span><span class="en">Rank</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026</td>
+                        <td><strong>Imageomics · Sentinel Beetles</strong> — <span class="zh">生態影像 OOD 辨識</span><span class="en">OOD recognition from ecological imagery</span><span class="mobile-institution">Global No. 2</span></td>
+                        <td><span class="rank">Global No. 2</span></td>
+                    </tr>
+                    <tr>
+                        <td>2026</td>
+                        <td><strong>A3D3 · Neural Forecasting</strong> — <span class="zh">科學訊號分布外預測</span><span class="en">out-of-distribution forecasting of scientific signals</span><span class="mobile-institution">Global No. 4</span></td>
+                        <td><span class="rank">Global No. 4</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div></div>
+        </div>
+
+    </section>
+
+    <section id="certifications">
+        <span class="section-title">05 / Certifications</span>
+        <div class="list-container">
+            <div class="list-row comp-card" tabindex="0">
+                <div class="row-label">NVIDIA DLI</div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/nvidia.png" alt="NVIDIA" loading="lazy">Building Transformer-Based NLP Applications</h3>
+                    <div class="comp-more"><div>
+                        <p><span class="zh">學習並實作以 Transformer / BERT 為基礎的 NLP 應用。</span><span class="en">Learned and built Transformer / BERT-based NLP applications.</span></p>
+                    </div></div>
+                </div>
+            </div>
+            <div class="list-row comp-card" tabindex="0">
+                <div class="row-label">NVIDIA DLI</div>
+                <div class="row-content">
+                    <h3><img class="org-logo" src="assets/logos/nvidia.png" alt="NVIDIA" loading="lazy">Fundamentals of Deep Learning</h3>
+                    <div class="comp-more"><div>
+                        <p><span class="zh">透過 NVIDIA 課程完整建構並訓練深度學習模型。</span><span class="en">Built and trained deep-learning models end to end through the NVIDIA curriculum.</span></p>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <span class="section-title">06 / Skills</span>
+        <div class="list-container">
+            <div class="list-row skill-row">
+                <div class="row-label">Languages</div>
+                <div class="row-content">
+                    <div class="tag-group">
+                        <span class="tag">C</span><span class="tag">C++</span><span class="tag">Verilog</span><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">Arduino</span><span class="tag">R</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-row skill-row">
+                <div class="row-label">ML / Data</div>
+                <div class="row-content">
+                    <div class="tag-group">
+                        <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">pandas</span><span class="tag">NumPy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-row skill-row">
+                <div class="row-label">Tools</div>
+                <div class="row-content">
+                    <div class="tag-group">
+                        <span class="tag">Claude Code</span><span class="tag">Codex</span><span class="tag">Gemini CLI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-mark">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><text x="24" y="32" text-anchor="middle" font-family="Source Serif 4, Noto Serif TC, Georgia, serif" font-size="27" font-weight="600" font-style="normal" fill="currentColor">CH</text></svg>
+        </span>
+        <div class="footer-socials">
+            <a href="mailto:faidavid7@gmail.com" class="social-icon" aria-label="Email faidavid7@gmail.com" title="faidavid7@gmail.com">
+                <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.6 19.8 6H4.2zM20 7.9l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+            </a>
+            <a href="https://github.com/faidavid7" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/cheng-han-chiang-878a0930a" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.58c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2026 江承瀚 Cheng-Han Chiang.<br>Built with HTML · CSS · JS.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

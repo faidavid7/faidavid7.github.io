@@ -625,3 +625,8 @@ header h1 .accent { white-space: nowrap; }
 .g-edu.g-cont { border-radius: 0; }
 .g-edu.g-cont .g-date::before { content: "◀ "; }      /* starts before the axis */
 .g-key.g-edu { background: var(--text-main); border: none; }
+
+/* lab / poster links */
+.lab-link, .row-links a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); transition: border-color .2s, color .2s; }
+.lab-link:hover, .row-links a:hover { color: var(--text-main); border-bottom-color: var(--text-main); }
+.row-links { margin: 8px 0 10px; font-size: .85rem; font-weight: 600; }
